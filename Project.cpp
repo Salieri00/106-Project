@@ -1,6 +1,6 @@
 /*  CS Project
-    Beach Booking System: Self Check part
-    Author: Masa Tantawy
+    Beach Booking System
+    Authors: Ahmed Badr, Shenawy, Nourhan Kamaly, Masa Tantawy
 */
 
 #include <iostream>
