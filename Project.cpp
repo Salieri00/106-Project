@@ -83,7 +83,7 @@ int MainMenu (){
 void Show_Map ()
 {
     cout << "Seats: ";
-    cout << "\t1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30\n";
+    //cout << "\t  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30\n";
 
     for (int i = 0; i < 15; i++)
     {
@@ -91,7 +91,7 @@ void Show_Map ()
 
         for (int j = 0; j < 30; j++)
         {
-            cout << " " <<  map [i] [j];
+            cout << "  " <<  map[i][j];
 
         }
     }
@@ -120,25 +120,28 @@ int main() {
                     cout << "Please select the column you would like to sit in: ";
                     cin >> UserCol;
 
-                    if (map[UserRow][UserCol] == '*') {
+                    if (map[UserRow-1][UserCol-1] == '*') {
                         cout << "Sorry that seat is sold-out, Please select a new seat.";
                         cout << endl;
                     }
-                    else if (map[UserRow + 1][UserCol] == '*' || map[UserRow][UserCol + 1] == '*' ||
-                               map[UserRow - 1][UserCol] == '*' || map[UserRow][UserCol - 1] == '*') {
-                        cout << "We care about your health.\n\n";
+                    else if (map[UserRow - 2][UserCol - 2] == '*' || map[UserRow][UserCol] == '*' ||
+                             map[UserRow - 2][UserCol] == '*' || map[UserRow][UserCol - 2] == '*' || map[UserRow][UserCol-1] == '*' || map[UserRow-2][UserCol-1] == '*' ||
+                            map[UserRow - 1][UserCol - 2]  == '*'  || map[UserRow - 1][UserCol] == '*') {
+
+                        cout << "We care about your health.\n";
                         cout << "A near by seat is reserved, and due to COVID-19, we cannot allow people to be sitting close.\n";
                         cout << "Please choose another seat\n\n";
 
                     }
                     else {
-                        cout << "File Shit\n\n";
+
+                        cout << "File Shit\n";
                         cout << "\n\nAre you sure you want to reserve the seat at row no." << UserRow << " and column no." << UserCol << "?";
                         cout <<"\t Yes <1>, No <0>\n"; cin >> LEAVE;
                         if (LEAVE == 0)
                             break;
                         cout << "Your seat reservation has been confirmed.\n\n" << endl;
-                        map[UserRow - 1][UserCol - 1] = FULL;
+                        map[UserRow-1][UserCol-1] = FULL;
                         }
 
                     cout << "Do you want to reserve another seat?   Yes <1>, No <0>";
@@ -153,8 +156,7 @@ int main() {
 
             case 3:
                 int cancel;
-                cout << "Are you sure you want to cancel your reservation?\t" << "Yes <1> , No <0> \n";
-            w:
+            w:  cout << "Are you sure you want to cancel your reservation?\t" << "Yes <1> , No <0> \n";
                 cin >> cancel;
                 if (cancel == 1) {
                     cout << "Please enter the row number the column number of you seat\n\n";
@@ -171,7 +173,7 @@ int main() {
                 break;
 
             case 4:
-                cout << "quit\n";
+                cout << "quitting\n";
                 cout << "\nThank you for choosing our service!\n";
                 break;
 
@@ -181,7 +183,5 @@ int main() {
     }
         while (UserChoice != 4);
 
-
         return 0;
-
 }
