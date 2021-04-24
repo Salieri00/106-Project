@@ -1,3 +1,4 @@
+
 /*  CS Project
     Beach Booking System
     Authors: Ahmed Badr, Shenawy, Nourhan Kamaly, Masa Tantawy
@@ -27,6 +28,16 @@ public:
     bool vomiting;
     bool loss_of_senses;
     bool covid_case;
+
+    self_check() { //constructor that declares all variables to NULL
+        fever = NULL;
+        difficulity_breathing = NULL;
+        cough= NULL;
+        soar_throat= NULL;
+        vomiting= NULL;
+        loss_of_senses= NULL;
+        covid_case= NULL;
+    }
 };
 
 class client {
@@ -38,8 +49,19 @@ public:
     int cardnumber;
     int expirydate;
     int cvv;
-};
 
+    client() { //constructor
+        age = NULL;
+        gender = NULL;
+        phone = NULL;
+        cardnumber = NULL;
+        expirydate = NULL;
+        cvv = NULL;
+    }
+};
+//----------------------------------------Functions----------------------------------------
+
+//Function to display Welcome
 void welcome()
 {
     cout << "|\\     /|(  ____ \\( \\      ( \\      (  ____ \\(  ___  )(       )(  ____ \\\n"
@@ -80,7 +102,8 @@ void welcome()
 
 }
 
-void time()
+//Function to display current time
+/* void time()
 {
     // Declaring argument for time()
     time_t tt;
@@ -98,9 +121,9 @@ void time()
     cout << "Current Day, Date and Time is = "
         << asctime(ti);
 
-}
+}*/
 
-//main menu function
+//Main menu function
 int MainMenu() {
     int MenuChoice;
     cout << "\n\t\t\t\t Welcome Customer!";	 																					//Menu for the user
@@ -114,7 +137,7 @@ int MainMenu() {
     return MenuChoice;
 }
 
-//funtion to show the seats
+//Funtion to show the seats
 void Show_Map()
 {
     cout << "Seats: ";
@@ -133,7 +156,7 @@ void Show_Map()
     cout << endl;
 }
 
-//function to check the health status of the customer
+//Function to check the health status of the customer based on number of symptoms
 string check_status(self_check A) {
     int symptoms = 0;
     //calculating how many symptoms the patient has
@@ -170,15 +193,15 @@ string check_status(self_check A) {
     }
 }
 
-//function to ask the customer for present symptoms
+//Health Check Questionnaire
 string health_check(self_check customer)
 {
     string input;
 
-    cout << "For each of the following itmes, choose whether you have recently experienced them or not.";
+    cout << "\n\n\tFor each of the following items, choose whether you have recently experienced them or not.";
     cout << endl << endl;
     //Question 1
-a:cout << " Fever, chills, or sweating." << setw(15) << "Yes/No" << endl;
+a:cout << "  Fever, chills, or sweating." << setw(15) << "Yes/No" << "\n\n";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -188,10 +211,10 @@ a:cout << " Fever, chills, or sweating." << setw(15) << "Yes/No" << endl;
         customer.fever = false;
     }
     else {
-        cout << "Invalid input"; goto a;
+        cout << "Please choose yes or no" << endl; goto a;
     }
     //Question 2
-b:cout << "Difficulty breathing (e.g., struggling for each breath, speaking in single words)." << setw(15) << "Yes/No" << endl;
+b:cout << "  Difficulty breathing (e.g., struggling for each breath, speaking in single words)." << setw(15) << "Yes/No" << "\n\n";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -201,10 +224,10 @@ b:cout << "Difficulty breathing (e.g., struggling for each breath, speaking in s
         customer.difficulity_breathing = false;
     }
     else {
-        cout << "Invalid input"; goto b;
+        cout << "Please choose yes or no" << endl; goto b;
     }
     //Question 3
-c:cout << "New or worsening cough." << setw(15) << "Yes/No" << endl;
+c:cout << "  New or worsening cough." << setw(15) << "Yes/No" << "\n\n";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -214,10 +237,10 @@ c:cout << "New or worsening cough." << setw(15) << "Yes/No" << endl;
         customer.cough = false;
     }
     else {
-        cout << "Invalid input"; goto c;
+        cout << "Please choose yes or no" << endl; goto c;
     }
     //Question 4
-d:cout << "Sore throat." << setw(15) << "Yes/No" << endl;
+d:cout << "  Sore throat." << setw(15) << "Yes/No" << "\n\n";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -227,10 +250,10 @@ d:cout << "Sore throat." << setw(15) << "Yes/No" << endl;
         customer.soar_throat = false;
     }
     else {
-        cout << "Invalid input"; goto d;
+        cout << "Please choose yes or no" << endl; goto d;
     }
     //Question 5
-e:cout << "Vomiting or Diarrhea" << setw(15) << "Yes/No" << endl;
+e:cout << "  Vomiting or Diarrhea" << setw(15) << "Yes/No" << "\n\n";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -240,10 +263,10 @@ e:cout << "Vomiting or Diarrhea" << setw(15) << "Yes/No" << endl;
         customer.vomiting = false;
     }
     else {
-        cout << "Invalid input"; goto e;
+        cout << "Please choose yes or no" << endl; goto e;
     }
     //Question 6
-f:cout << "Sustained loss of smell, taste or appetite" << setw(15) << "Yes / No" << endl;
+f:cout << "  Sustained loss of smell, taste or appetite" << setw(15) << "Yes / No" << "\n\n";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -253,20 +276,20 @@ f:cout << "Sustained loss of smell, taste or appetite" << setw(15) << "Yes / No"
         customer.loss_of_senses = false;
     }
     else {
-        cout << "Invalid input"; goto f;
+        cout << "Please choose yes or no" << endl; goto f;
     }
     //Question 7
-g:cout << "Have you been within 6 feet (2 meters) of a COVID-19 case for 10 min or more in the last 2 weeks?" << setw(15) << "Yes / No" << endl;
+g:cout << "  Have you been within 6 feet (2 meters) of a COVID-19 case for 10 min or more in the last 2 weeks?" << setw(15) << "Yes / No" << "\n\n";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
         customer.covid_case = true;
     }
-    else if (input == "No" || input == "no" || input == "N"|| input== "n") {
+    else if (input == "No" || input == "no" || input == "N" || input == "n") {
         customer.covid_case = false;
     }
     else {
-        cout << "Invalid input"; goto g;
+        cout << "Please choose yes or no" << endl; goto g;
     }
 
     string status = check_status(customer);
@@ -325,7 +348,7 @@ int main() {
 
     int UserRow, UserCol;
     welcome();
-    time();
+    //time();
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) { map[i][j] = EMPTY; }
@@ -336,26 +359,40 @@ int main() {
 
         switch (UserChoice) {
         case 1:
-            cout << "\n \n First, you will need to complete the self-check" << endl;
-          
+            cout << endl << endl<< setw(30) << "STEP ONE\n";
+            cout<< "\n\n\t\tFirst, you will need to complete the self-check." << endl;
+
             do {
                 //Self check part
-                self_check Masa;
-                Masa.fever = true;
-                string status = health_check(Masa);
+                self_check customer;
+                string status = health_check(customer);
 
                 if (status == "Highly Suspicious") {
-                    cout << "COVID 19"; return 0;
+                    cout << "\n\n\t\t Unfortunately, you have too many symptoms." << endl;
+                    cout << "\t\tFor your own safety and those around you, you will need to isolate yourself." << endl;
+                    cout << "\t\tWe apologize. You won't be able to reserve a seat." << endl;
+                    return 0;
+                }
+                if (status == "Suspicious") {
+                    cout << "\n\n\t\tYour health status is: " << status <<"."<< endl;
+                    cout << "\t\tFor your own safety and those around you, please repeat the self-check after 7 days." << endl;
+                    cout << "\t\tYou will be able to reserve a seat for now." << endl;
                 }
                 else {
-                    cout << endl<< endl<< "Your health status is: " << status << endl;
+                    cout << endl << endl << "Your health status is: " << status << endl;
                 }
-                //Selecting the seat
-                cout << "Reserving a seat...\n\n";
 
-                cout << "Please select the row you would like to sit in: ";
+                //Selecting a seat
+
+                cout << endl << endl << setw(30) << "STEP TWO\n";
+                cout << "\n\Selecting a seat...\n\n";
+
+                //displaying the map
+                Show_Map();
+
+                cout << endl<<"Please select the row you would like to sit in: ";
                 cin >> UserRow;
-                cout << "Please select the column you would like to sit in: ";
+                cout << endl<<"Please select the column you would like to sit in: ";
                 cin >> UserCol;
 
                 if (map[UserRow - 1][UserCol - 1] == '*') {
@@ -372,44 +409,41 @@ int main() {
 
                 }
                 else {
-                     //displaying the types of seats
+                    //displaying the types of seats
                     displaySeats();
 
                     int reserve;
-                    cout << "please enter the seat you want to reserve: ";
+                    cout << endl<<"please enter the seat you want to reserve: ";
                     cin >> reserve;
                     while (reserve < 1 || reserve > 8) {
-                        cout << "please enter a valid number from 1 - 8: ";
+                        cout << endl<<"please enter a valid number from 1 - 8: ";
                         cin >> reserve;
                     }
 
 
                     //the details of the client
-                    client Nourhan;
-                    string name;
-                    char gender;
-                    int card, cvvv, date, phone, age;
+                    client details;
 
                     cout << "\n \n Now we will be taking your information to book the slot" << endl;
-                    cout << "Please enter your first name :" << endl;
-                    cin >> Nourhan.name;
-                    cout << "Please enter your age :" << endl;
-                    cin >> Nourhan.age;
-                    cout << "Please enter your gender (M/F) :" << endl;
-                    cin >> Nourhan.gender;
+                    cout << "\n\t\tPlease enter your first name :" << endl;
+                    cin >> details.name;
+                    cout << "\n\t\tPlease enter your age :" << endl;
+                    cin >> details.age;
+                    cout << "\n\t\tPlease enter your gender (M/F) :" << endl;
+                    cin >> details.gender;
 
-                    cout << "Now enter the Payment Details\n";
+                    cout << "\n\t\tNow enter the Payment Details\n";
 
-                    cout << "Please enter your credit card number (without spaces) :" << endl;
-                    cin >> Nourhan.cardnumber;
-                    cout << "Please enter the card's expiry date : " << endl;
-                    cin >> Nourhan.expirydate;
-                    cout << "Please enter the card's cvv :" << endl;
-                    cin >> Nourhan.cvv;
-                    cout << "Please enter your phone number :" << endl;
-                    cin >> Nourhan.phone;
+                    cout << "\n\t\tPlease enter your credit card number (without spaces) :" << endl;
+                    cin >> details.cardnumber;
+                    cout << "\n\t\tPlease enter the card's expiry date : " << endl;
+                    cin >> details.expirydate;
+                    cout << "\n\t\tPlease enter the card's cvv :" << endl;
+                    cin >> details.cvv;
+                    cout << "\n\t\tPlease enter your phone number :" << endl;
+                    cin >> details.phone;
 
-                    putFiles(Nourhan);
+                    putFiles(details);
 
                     //confirming the reservation
                     cout << "\n\nAre you sure you want to reserve the seat at row no." << UserRow << " and column no." << UserCol << "?";
@@ -422,13 +456,13 @@ int main() {
 
                 cout << "Do you want to reserve another seat?   Yes <1>, No <0>";
                 cin >> LEAVE;
-            }                 while (LEAVE == 1);
+            } while (LEAVE == 1);
             break;
         case 2:
             cout << "View Available Seats\n\n";
             Show_Map();
             break;
-//cancelling the reservation
+            //cancelling the reservation
         case 3:
             int cancel;
         w:  cout << "Are you sure you want to cancel your reservation?\t" << "Yes <1> , No <0> \n";
@@ -437,14 +471,14 @@ int main() {
                 cout << "Please enter the row number the column number of you seat\n\n";
                 cin >> UserRow >> UserCol;
 
-                map[UserRow-1][UserCol-1] = EMPTY;
+                map[UserRow - 1][UserCol - 1] = EMPTY;
                 cout << "Reservation cancelled successfully.\n";
             }
             else if (cancel == 0) {
                 break;
             }
             else {
-                cout << "Input Invalid.\n";
+                cout << "Please choose one of the available options .\n";
                 goto w;
             }
             break;
@@ -457,7 +491,7 @@ int main() {
         default:
             cout << "Error input\n";
         }
-    }         while (UserChoice != 4);
+    } while (UserChoice != 4);
 
-    return 0; 
+    return 0;
 }
