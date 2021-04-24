@@ -66,8 +66,6 @@ int main() {
 
 	putFiles(Nourhan);
 
-	cout << "Coutaya malhash lazma";
-
 
 	return 0;
 }
