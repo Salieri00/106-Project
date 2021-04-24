@@ -24,8 +24,8 @@ void putFiles(client person) {
 	outfile << "Phone number: "<<person.phone << endl;
 	outfile << "Credit card number: "<<person.cardnumber << endl;
 	outfile << "Credit card expiry date: "<<person.expirydate << endl;
-	outfile << person.cvv << endl;
-	outfile << person.phone<< endl;
+	outfile << "Credit card CVV: "<<person.cvv << endl;
+	outfile << " Phone number :"<<person.phone<< endl;
 
 	outfile.close();
 	ifstream ifile;
