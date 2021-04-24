@@ -22,8 +22,8 @@ void putFiles(client person) {
 	outfile << "Age: "<<person.age << endl;
 	outfile << "Gender: "<<person.gender << endl;
 	outfile << "Phone number: "<<person.phone << endl;
-	outfile << person.cardnumber << endl;
-	outfile << person.expirydate << endl;
+	outfile << "Credit card number: "<<person.cardnumber << endl;
+	outfile << "Credit card expiry date: "<<person.expirydate << endl;
 	outfile << person.cvv << endl;
 	outfile << person.phone<< endl;
 
