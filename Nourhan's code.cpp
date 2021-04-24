@@ -19,9 +19,9 @@ void putFiles(client person) {
 	outfile.open("Client Data.txt");
 
 	outfile << "Name: "<<person.name << endl;
-	outfile << "Age: "person.age << endl;
-	outfile << person.gender << endl;
-	outfile << person.phone << endl;
+	outfile << "Age: "<<person.age << endl;
+	outfile << "Gender: "<<person.gender << endl;
+	outfile << "Phone number: "<<person.phone << endl;
 	outfile << person.cardnumber << endl;
 	outfile << person.expirydate << endl;
 	outfile << person.cvv << endl;
