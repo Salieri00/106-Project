@@ -3,7 +3,7 @@
 #include<fstream>
 using namespace std;
 
-class client {
+class client { //class client to save all the different components of clients
 public:
 	string name;
 	int age;
@@ -14,11 +14,11 @@ public:
 	int cvv;
 };
 
-void putFiles(client person) {
-	ofstream outfile;
+void putFiles(client person) { //function to put the client information in files
+	ofstream outfile; //declare it as ofstream to write 
 	outfile.open("Client Data.txt");
 
-	outfile << "Name: "<<person.name << endl;
+	outfile << "Name: "<<person.name << endl; 
 	outfile << "Age: "<<person.age << endl;
 	outfile << "Gender: "<<person.gender << endl;
 	outfile << "Phone number: "<<person.phone << endl;
@@ -28,13 +28,13 @@ void putFiles(client person) {
 	outfile << " Phone number :"<<person.phone<< endl;
 
 	outfile.close();
-	ifstream ifile;
+	ifstream ifile; //to read 
 	ifile.open("Client Data.txt");
 
 	char ch;
 	cout << endl << endl;
 	//displaying the contents of the file
-	while (!ifile.eof()) {
+	while (!ifile.eof()) { //read each character in the file and display it on the screen.
 		ifile.get(ch);
 		cout << ch;
 	}
@@ -49,8 +49,8 @@ int main() {
 	int card, cvvv, date, phone, age;
 
 	cout << "Now we will be taking your information to book the slot" << endl;
-		cout << "Please enter your first name :" << endl;
-	cin >> Nourhan.name;
+	cout << "Please enter your first name :" << endl;
+	cin >> Nourhan.name; //save it in the datatype Nourhan 
 	cout << "Please enter your age :" << endl;
 	cin >> Nourhan.age;
 	cout << "Please enter your gender (M/F) :" << endl;
@@ -64,7 +64,7 @@ int main() {
 	cout << "Please enter your phone number :" << endl;
 	cin >> Nourhan.phone;
 
-	putFiles(Nourhan);
+	putFiles(Nourhan); //function call 
 
 
 	return 0;
