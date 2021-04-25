@@ -3,7 +3,7 @@
 #include<fstream>
 using namespace std;
 
-class client { //class client to save all the different components of clients
+class client {                     //class client to save all the different components of clients
 public:
 	string name;
 	int age;
@@ -14,8 +14,8 @@ public:
 	int cvv;
 };
 
-void putFiles(client person) { //function to put the client information in files
-	ofstream outfile; //declare it as ofstream to write 
+void putFiles(client person) {                //function to put the client information in files
+	ofstream outfile;                   //declare it as ofstream to write 
 	outfile.open("Client Data.txt");
 
 	outfile << "Name: "<<person.name << endl; 
@@ -33,8 +33,7 @@ void putFiles(client person) { //function to put the client information in files
 
 	char ch;
 	cout << endl << endl;
-	//displaying the contents of the file
-	while (!ifile.eof()) { //read each character in the file and display it on the screen.
+	while (!ifile.eof()) {           //read each character in the file and display it on the screen.
 		ifile.get(ch);
 		cout << ch;
 	}
@@ -64,7 +63,7 @@ int main() {
 	cout << "Please enter your phone number :" << endl;
 	cin >> Nourhan.phone;
 
-	putFiles(Nourhan); //function call 
+	putFiles(Nourhan);             //function call 
 
 
 	return 0;
