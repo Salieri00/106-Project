@@ -61,6 +61,37 @@ public:
 };
 //----------------------------------------Functions----------------------------------------
 
+//Function to log in
+bool LogIn () {
+    string userName;
+    string userPassword;
+    int loginAttempt = 0;
+
+    do {
+        cout << "\t-------------------------Log in-------------------------" << endl;
+
+        cout << "Please enter your user name then password: " << endl;
+        cin >> userName >> userPassword;
+
+        if (userName == "Selim" && userPassword == "CS106") {
+            cout << "Welcome Selim!\n";
+            return true;
+        } else if (userName == "Aya" && userPassword == "CSCS") {
+            cout << "Welcome Aya!\n";
+            return true;
+        } else {
+            cout << "Invalid login attempt. Please try again.\n" << '\n';
+            loginAttempt++;
+        }
+
+    } while (loginAttempt < 5);
+
+    if (loginAttempt == 5) {
+        cout << "Too many login attempts! The program will now terminate.";
+        return false;
+    }
+}
+
 //Function to display Welcome
 void welcome()
 {
@@ -345,6 +376,11 @@ void putFiles(client person) {
 
 //-------------------------------------------MAIN FUNCTION-------------------------------
 int main() {
+    
+    if (LogIn() == false)
+{
+    exit(1);
+}
 
     int UserRow, UserCol;
     welcome();
