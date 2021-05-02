@@ -52,13 +52,13 @@ void putFiles(client person) {           //function to put the client informatio
 }
 
 int main() {
-	client Nourhan;
+	client info;
 	cout << "Now we will be taking your information to book the slot" << endl;
 	//Question 1
 a: cout << "Please enter your first name :" << endl;
-	cin >> Nourhan.name;
+	cin >> info.name;
 	string alpha;
-	alpha = Nourhan.name;
+	alpha = info.name;
 	for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all letters or not
 		if (!isalpha(alpha[s])) {
 			cin.clear();
@@ -77,12 +77,12 @@ b: cout << "Please enter your age" << endl;
 			goto b;
 		}
 	}
-	Nourhan.age = stoi(j); //redefine to store it in Nourhan.age from string to int 
+	info.age = stoi(j); //redefine to store it in Nourhan.age from string to int 
 	//Question 3
 c:cout << "Please enter your gender (M/F) :" << endl;
 	char gen = ' ';
 	cin >> gen;
-	Nourhan.gender = gen;
+	info.gender = gen;
 	if (!(gen == 'M' || gen == 'm' || gen == 'F' || gen == 'f')) {
 		cin.clear();
 		cout << "Invalid input" << endl;
@@ -99,7 +99,7 @@ d:cout << "Please enter your phone number :" << endl;
 			goto d;
 		}
 	}
-	Nourhan.phone = stoi(ph);
+	info.phone = stoi(ph);
 	//Question 5
 e:cout << "Please enter your credit card number (without spaces) :" << endl;
 	string num{}; {};
@@ -111,7 +111,7 @@ e:cout << "Please enter your credit card number (without spaces) :" << endl;
 			goto e;
 		}
 	}
-	Nourhan.cardnumber = stoi(num);
+	info.cardnumber = stoi(num);
 	//Question 6
 f: cout << "Please enter the card's expiry date : " << endl;
 	string dat{};
@@ -123,7 +123,7 @@ f: cout << "Please enter the card's expiry date : " << endl;
 			goto f;
 		}
 	}
-	Nourhan.expirydate = stoi(dat);
+	info.expirydate = stoi(dat);
 	//Question 7
 g:cout << "Please enter the card's cvv :" << endl;
 	string cv;
@@ -135,9 +135,9 @@ g:cout << "Please enter the card's cvv :" << endl;
 			goto g;
 		}
 	}
-	Nourhan.cvv = stoi(cv);
+	info.cvv = stoi(cv);
 
-	putFiles(Nourhan);             //function call 
+	putFiles(info);             //function call 
 
 	return 0;
 }
