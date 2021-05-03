@@ -67,7 +67,7 @@ class ticket {
         double sprice;
         string stype;
         double discount;
-        int wallet;
+        double wallet;
 
         ticket() {
             VIP = NULL;
@@ -147,7 +147,8 @@ int MainMenu() {
     cout << "\n\n\t\t\t\t <1> Reserve Seat";
     cout << "\n\t\t\t\t <2> Check Available Seats";
     cout << "\n\t\t\t\t <3> Return Ticket";
-    cout << "\n\t\t\t\t <4> Exit \n";
+    cout << "\n\t\t\t\t <4> Self Check";
+    cout << "\n\t\t\t\t <5> Exit \n";
     cout << "\t\t\t\t _____________________\n";
     cout << "\t\t\t\t Enter Your Choice :" << "\t";
     cin >> MenuChoice;
@@ -161,29 +162,30 @@ bool LogIn() {
     int loginAttempt = 0;
 
     do {
-        cout << "\t-------------------------Log in-------------------------" << endl;
+        cout << "\n\n\t\t\t\t-------------------------Log in-------------------------";
 
-        cout << "Please enter your user name then password: " << endl;
+        cout << "\n\n\t\t\t\tPlease enter the user name:\t";
         getline(cin, userName);
-        cin>> userPassword;
+        cout << "\n\t\t\t\tPlease enter the password:\t";
+        getline(cin, userPassword);
 
         if (userName == "Selim" && userPassword == "CS106") {
-            cout << "Welcome Selim!\n";
+            cout << "\n\t\t\t\tWelcome Selim!\n\n";
             return true;
         }
         else if (userName == "Dr Aya" && userPassword == "CSCS") {
-            cout << "Welcome Dr Aya!\n";
+            cout << "\n\t\t\t\tWelcome Dr Aya!\n\n";
             return true;
         }
         else {
-            cout << "Invalid login attempt. Please try again.\n" << '\n';
+            cout << "\n\n\t\t\t\tInvalid login attempt. Please try again.\n" << '\n';
             loginAttempt++;
         }
 
     } while (loginAttempt < 5);
 
     if (loginAttempt == 5) {
-        cout << "Too many login attempts! The program will now terminate.";
+        cout << "\n\n\t\t\t\tToo many login attempts! The program will now terminate.";
         return false;
     }
 }
@@ -191,8 +193,10 @@ bool LogIn() {
 //Funtion to show the seats
 void Show_Map()
 {
+    cout << "\n\n\t\t\t\t\n";
+    cout << "# Indicates an empty seat while * indicates a reserved seat.\n\n";
     cout << "Seats: ";
-    cout << "\t  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30\n";
+    cout << "\t  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30\n";
 
     for (int i = 0; i < 15; i++)
     {
@@ -249,10 +253,10 @@ string health_check(self_check customer)
 {
     string input;
 
-    cout << "\n\n\tFor each of the following items, choose whether you have recently experienced them or not.";
+    cout << "\n\n\t\t\t\tFor each of the following items, choose whether you have recently experienced them or not.";
     cout << endl << endl;
     //Question 1
-a:cout << "  Fever, chills, or sweating." << setw(15) << "Yes/No" << "\n\n";
+a:cout << "\n\t\t\t\tFever, chills, or sweating." << setw(15) << "Yes/No\t";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -262,10 +266,10 @@ a:cout << "  Fever, chills, or sweating." << setw(15) << "Yes/No" << "\n\n";
         customer.fever = false;
     }
     else {
-        cout << "Please choose yes or no" << endl; goto a;
+        cout << "\n\n\t\t\t\tPlease choose yes or no" << endl; goto a;
     }
     //Question 2
-b:cout << "  Difficulty breathing (e.g., struggling for each breath, speaking in single words)." << setw(15) << "Yes/No" << "\n\n";
+b:cout << "\n\t\t\t\tDifficulty breathing (e.g., struggling for each breath, speaking in single words)." << setw(15) << "Yes/No\t";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -275,10 +279,10 @@ b:cout << "  Difficulty breathing (e.g., struggling for each breath, speaking in
         customer.difficulity_breathing = false;
     }
     else {
-        cout << "Please choose yes or no" << endl; goto b;
+        cout << "\n\n\t\t\t\tPlease choose yes or no" << endl; goto b;
     }
     //Question 3
-c:cout << "  New or worsening cough." << setw(15) << "Yes/No" << "\n\n";
+c:cout << "\n\t\t\t\tNew or worsening cough." << setw(15) << "Yes/No\t";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -288,10 +292,10 @@ c:cout << "  New or worsening cough." << setw(15) << "Yes/No" << "\n\n";
         customer.cough = false;
     }
     else {
-        cout << "Please choose yes or no" << endl; goto c;
+        cout << "\n\n\t\t\t\tPlease choose yes or no" << endl; goto c;
     }
     //Question 4
-d:cout << "  Sore throat." << setw(15) << "Yes/No" << "\n\n";
+d:cout << "\n\t\t\t\tSore throat." << setw(15) << "Yes/No\t";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -301,10 +305,10 @@ d:cout << "  Sore throat." << setw(15) << "Yes/No" << "\n\n";
         customer.soar_throat = false;
     }
     else {
-        cout << "Please choose yes or no" << endl; goto d;
+        cout << "\n\n\t\t\t\tPlease choose yes or no" << endl; goto d;
     }
     //Question 5
-e:cout << "  Vomiting or Diarrhea" << setw(15) << "Yes/No" << "\n\n";
+e:cout << "\n\t\t\t\tVomiting or Diarrhea" << setw(15) << "Yes/No\t";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -314,10 +318,10 @@ e:cout << "  Vomiting or Diarrhea" << setw(15) << "Yes/No" << "\n\n";
         customer.vomiting = false;
     }
     else {
-        cout << "Please choose yes or no" << endl; goto e;
+        cout << "\n\n\t\t\t\tPlease choose yes or no" << endl; goto e;
     }
     //Question 6
-f:cout << "  Sustained loss of smell, taste or appetite" << setw(15) << "Yes / No" << "\n\n";
+f:cout << "\n\t\t\t\tSustained loss of smell, taste or appetite" << setw(15) << "Yes / No\t";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -327,10 +331,10 @@ f:cout << "  Sustained loss of smell, taste or appetite" << setw(15) << "Yes / N
         customer.loss_of_senses = false;
     }
     else {
-        cout << "Please choose yes or no" << endl; goto f;
+        cout << "\n\n\t\t\t\tPlease choose yes or no" << endl; goto f;
     }
     //Question 7
-g:cout << "  Have you been within 6 feet (2 meters) of a COVID-19 case for 10 min or more in the last 2 weeks?" << setw(15) << "Yes / No" << "\n\n";
+g:cout << "\n\t\t\t\tHave you been within 6 feet (2 meters) of a COVID-19 case for 10 min or more in the last 2 weeks?" << setw(15) << "Yes / No\t";
     cin >> input;
 
     if (input == "Yes" || input == "yes" || input == "y" || input == "Y") {
@@ -340,7 +344,7 @@ g:cout << "  Have you been within 6 feet (2 meters) of a COVID-19 case for 10 mi
         customer.covid_case = false;
     }
     else {
-        cout << "Please choose yes or no" << endl; goto g;
+        cout << "\n\n\t\t\t\tPlease choose yes or no" << endl; goto g;
     }
 
     string status = check_status(customer);
@@ -417,52 +421,53 @@ int main() {
         case 1:
         {
 
-            cout << endl << endl << setw(30) << "STEP ONE\n";
-            cout << "\n\n\t\tFirst, you will need to complete the self-check." << endl;
+            cout << endl << endl << setw(30) << "\n\n\t\t\t\tSTEP ONE";
+            cout << "\n\n\t\t\t\tFirst, you will need to complete the self-check." << endl;
 
             //Self check part
             self_check customer;
             string status = health_check(customer);
 
             if (status == "Highly Suspicious") {
-                cout << "\n\n\t\t Unfortunately, you have too many symptoms." << endl;
-                cout << "\t\tFor your own safety and those around you, you will need to isolate yourself." << endl;
-                cout << "\t\tWe apologize. You won't be able to reserve a seat." << endl;
+                cout << "\n\n\t\t\t\tUnfortunately, you have too many symptoms.";
+                cout << "\n\t\t\t\tFor your own safety and those around you, you will need to isolate yourself.";
+                cout << "\n\t\t\t\tWe apologize. You won't be able to reserve a seat." << endl;
                 return 0;
             }
             if (status == "Suspicious") {
-                cout << "\n\n\t\tYour health status is: " << status << "." << endl;
-                cout << "\t\tFor your own safety and those around you, please repeat the self-check after 7 days." << endl;
-                cout << "\t\tYou will be able to reserve a seat for now." << endl;
+                cout << "\n\n\t\tYour health status is: " << status << ".";
+                cout << "\n\t\t\t\tFor your own safety and those around you, please repeat the self-check after 7 days.";
+                cout << "\n\t\t\t\tYou will be able to reserve a seat for now.";
             }
             else {
-                cout << endl << endl << "Your health status is: " << status << endl;
+                cout << endl << endl << "\n\n\t\t\t\tYour health status is: " << status;
+                cout << "\n\t\t\t\tYou will be able to reserve a seat.";
             }
         }
             do {
                 //Selecting a seat
-                cout << endl << endl << setw(30) << "STEP TWO\n";
-                cout << "\nSelecting a seat...\n\n";
+                cout << endl << endl << setw(30) << "\n\n\t\t\t\tSTEP TWO";
+                cout << "\n\n\t\t\t\tSelecting a seat...";
 
                 //displaying the map
                 Show_Map();
 
-                cout << endl<<"Please select the row you would like to sit in: ";
+                cout << endl<<"\n\n\t\t\t\tPlease select the row you would like to sit in:\t";
                 cin >> UserRow;
-                cout << endl<<"Please select the column you would like to sit in: ";
+                cout << endl<<"\n\n\t\t\t\tPlease select the column you would like to sit in:\t";
                 cin >> UserCol;
 
                 if (map[UserRow - 1][UserCol - 1] == '*') {
-                    cout << "Sorry that seat is sold-out, Please select a new seat.";
+                    cout << "\n\n\t\t\t\tSorry that seat is sold-out, Please select a new seat.";
                     cout << endl;
                 }
                 else if (map[UserRow - 2][UserCol - 2] == '*' || map[UserRow][UserCol] == '*' ||
                     map[UserRow - 2][UserCol] == '*' || map[UserRow][UserCol - 2] == '*' || map[UserRow][UserCol - 1] == '*' || map[UserRow - 2][UserCol - 1] == '*' ||
-                    map[UserRow - 1][UserCol - 2] == '*' || map[UserRow - 1][UserCol] == '*') {
+                    map[UserRow - 1][UserCol - 2] == '*' || map[UserRow - 1][UserCol] == '*') { 
 
-                    cout << "We care about your health.\n";
-                    cout << "A near by seat is reserved, and due to COVID-19, we cannot allow people to be sitting close.\n";
-                    cout << "Please choose another seat\n\n";
+                    cout << "\n\n\t\t\t\tWe care about your health. ";
+                    cout << "A near by seat is reserved, and due to COVID-19, we cannot allow people to be sitting close.";
+                    cout << "\n\t\t\t\tPlease choose another seat\n\n";
 
                 }
                 else {
@@ -470,10 +475,10 @@ int main() {
                     displaySeats();
 
                     int reserve;
-                    cout << endl<<"please enter the seat you want to reserve: ";
+                    cout << endl<<"\n\n\t\t\t\tPlease enter the seat you want to reserve:\t";
                     cin >> reserve;
                     while (reserve < 1 || reserve > 8) {
-                        cout << endl<<"please enter a valid number from 1 - 8: ";
+                        cout << endl<<"\n\n\t\t\t\tPlease enter a valid number from 1 - 8:\t";
                         cin >> reserve;
                     }
                     
@@ -506,116 +511,120 @@ int main() {
                         Shenawy.stype = "Portable leisure wood chair with umbrella"; break;
                     }
 
-                    //the details of the client
-                    client Nourhan;
-
-                    cout << "\n \n Now we will be taking your information to book the slot" << endl;
-                    
-                    //Question 1
-                h: cout << "Please enter your first name :" << endl;
-                    cin >> Nourhan.name;
-                    string alpha;
-                    alpha = Nourhan.name;
-                    for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all letters or not
-                        if (!isalpha(alpha[s])) {
-                            cin.clear();
-                            cout << "Invalid input" << endl;
-                            goto h;
-                        }
-                    }
-                    //Question 2
-                    string j;
-                i: cout << "Please enter your age" << endl;
-                    cin >> j;
-                    for (int i = 0; i < j.length(); i++) {  //isdigit works with string... loop over the string
-                        if (!isdigit(j[i])) {
-                            cin.clear();
-                            cout << "Invalid input" << endl;
-                            goto i;
-                        }
-                    }
-                    Nourhan.age = stoi(j); //redefine to store it in Nourhan.age from string to int 
-                    //Question 3
-                j:cout << "Please enter your gender (M/F) :" << endl;
-                    char gen = ' ';
-                    cin >> gen;
-                    Nourhan.gender = gen;
-                    if (!(gen == 'M' || gen == 'm' || gen == 'F' || gen == 'f')) {
-                        cin.clear();
-                        cout << "Invalid input" << endl;
-                        goto j;
-                    }
-                    //Question 4
-                k:cout << "Please enter your phone number :" << endl;
-                    string ph;
-                    cin >> ph;
-                    for (int i = 0; i < ph.length(); i++) {
-                        if (!isdigit(ph[i])) {
-                            cin.clear();
-                            cout << "Invalid input" << endl;
-                            goto k;
-                        }
-                    }
-                    Nourhan.phone = stoi(ph);
-                    //Question 5
-                l:cout << "Please enter your credit card number (without spaces) :" << endl;
-                    string num{}; {};
-                    cin >> num;
-                    for (int i = 0; i < num.length(); i++) {
-                        if (!isdigit(num[i])) {
-                            cin.clear();
-                            cout << "Invalid input" << endl;
-                            goto l;
-                        }
-                    }
-                    Nourhan.cardnumber = stoi(num);
-                    //Question 6
-                m: cout << "Please enter the card's expiry date : " << endl;
-                    string dat{};
-                    cin >> dat;
-                    for (int i = 0; i < dat.length(); i++) {
-                        if (!isdigit(dat[i])) {
-                            cin.clear();
-                            cout << "Invalid input" << endl;
-                            goto m;
-                        }
-                    }
-                    Nourhan.expirydate = stoi(dat);
-                    //Question 7
-                n:cout << "Please enter the card's cvv :" << endl;
-                    string cv;
-                    cin >> cv;
-                    for (int i = 0; i < cv.length(); i++) {
-                        if (!isdigit(cv[i])) {
-                            cin.clear();
-                            cout << "Invalid input" << endl;
-                            goto n;
-                        }
-                    }
-                    Nourhan.cvv = stoi(cv);
-                    putFiles(Nourhan);             //function call 
-
-                    do {
-                        cout << "Are you a VIP client?\t <1>:Yes\t<0>:No\t";
-                        cin >> Shenawy.VIP;
-                    } while (!(Shenawy.VIP == 0 || Shenawy.VIP == 1));
-
-                    if (Shenawy.VIP == 1) {
-                        cout << "\nDrinks and Food are included in the ticket price";
-                    }
-
                     //confirming the reservation
-                    cout << "\n\nAre you sure you want to reserve the seat at row no." << UserRow << " and column no." << UserCol << "?";
-                    cout << "\t Yes <1>, No <0>\n"; cin >> LEAVE;
+                    cout << "\n\n\t\t\t\tAre you sure you want to reserve the seat at row no." << UserRow << " and column no." << UserCol << "?";
+                    cout << "\tYes <1>, No <0>\n"; cin >> LEAVE;
                     if (LEAVE == 0)
                         break;
-                    cout << "Your seat reservation has been confirmed.\n\n" << endl;
+                    cout << "\n\t\t\t\tSeat added to your cart.\n\n" << endl;
                     map[UserRow - 1][UserCol - 1] = FULL;
                 }
 
-                cout << "Do you want to reserve another seat?   Yes <1>, No <0>";
+                cout << "\n\n\t\t\t\tDo you want to reserve another seat?";
+                cout << "\tYes <1>, No <0>\n";
                 cin >> LEAVE;
             } while (LEAVE == 1);
+
+            {
+                //the details of the client
+                client Nourhan;
+
+                cout << "\n\n\t\t\t\tNow we will be taking your information to book the slot.";
+
+                //Question 1
+            h: cout << "\n\t\t\t\tPlease enter your first name :\t";
+                cin >> Nourhan.name;
+                string alpha;
+                alpha = Nourhan.name;
+                for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all letters or not
+                    if (!isalpha(alpha[s])) {
+                        cin.clear();
+                        cout << "\n\t\t\t\tInvalid input";
+                        goto h;
+                    }
+                }
+                //Question 2
+                string j;
+            i: cout << "\n\t\t\t\tPlease enter your age.\t";
+                cin >> j;
+                for (int i = 0; i < j.length(); i++) {  //isdigit works with string... loop over the string
+                    if (!isdigit(j[i])) {
+                        cin.clear();
+                        cout << "\n\t\t\t\tInvalid input";
+                        goto i;
+                    }
+                }
+                Nourhan.age = stoi(j); //redefine to store it in Nourhan.age from string to int 
+                //Question 3
+            j:cout << "\n\t\t\t\tPlease enter your gender (M/F):\t";
+                char gen = ' ';
+                cin >> gen;
+                Nourhan.gender = gen;
+                if (!(gen == 'M' || gen == 'm' || gen == 'F' || gen == 'f')) {
+                    cin.clear();
+                    cout << "\n\t\t\t\tInvalid input" << endl;
+                    goto j;
+                }
+                //Question 4
+            k:cout << "\n\t\t\t\tPlease enter your phone number :\t" << endl;
+                string ph;
+                cin >> ph;
+                for (int i = 0; i < ph.length(); i++) {
+                    if (!isdigit(ph[i])) {
+                        cin.clear();
+                        cout << "\n\t\t\t\tInvalid input" << endl;
+                        goto k;
+                    }
+                }
+                Nourhan.phone = stoi(ph);
+                //Question 5
+            l:cout << "\n\t\t\t\tPlease enter your credit card number (without spaces):\t";
+                string num{}; {};
+                cin >> num;
+                for (int i = 0; i < num.length(); i++) {
+                    if (!isdigit(num[i])) {
+                        cin.clear();
+                        cout << "\n\t\t\t\tInvalid input";
+                        goto l;
+                    }
+                }
+                Nourhan.cardnumber = stoi(num);
+                //Question 6
+            m: cout << "\n\t\t\t\tPlease enter the card's expiry date:\t";
+                string dat{};
+                cin >> dat;
+                for (int i = 0; i < dat.length(); i++) {
+                    if (!isdigit(dat[i])) {
+                        cin.clear();
+                        cout << "\n\t\t\t\tInvalid input";
+                        goto m;
+                    }
+                }
+                Nourhan.expirydate = stoi(dat);
+                //Question 7
+            n:cout << "\n\t\t\t\tPlease enter the card's cvv:\t";
+                string cv;
+                cin >> cv;
+                for (int i = 0; i < cv.length(); i++) {
+                    if (!isdigit(cv[i])) {
+                        cin.clear();
+                        cout << "\n\t\t\t\tInvalid input";
+                        goto n;
+                    }
+                }
+                Nourhan.cvv = stoi(cv);
+                putFiles(Nourhan);             //function call 
+
+                do {
+                    cout << "\n\t\t\t\tAre you a VIP client?\t <1>:Yes\t<0>:No\t";
+                    cin >> Shenawy.VIP;
+                } while (!(Shenawy.VIP == 0 || Shenawy.VIP == 1));
+
+                if (Shenawy.VIP == 1) {
+                    cout << "\n\n\t\t\t\tDrinks and Food are included in the ticket price.";
+                }
+                cout << "\n\n\t\t\t\tYour seat reservation has been confirmed.\n\n";
+            }
             
             if (Shenawy.sprice >= 2000) {
                 Shenawy.discount += 0.2;
@@ -626,59 +635,83 @@ int main() {
                 ifstream file;
                 file.open("Client Data.txt");
 
-                cout << "\n\nBILL:\n";
+                cout << "\n\n\t\t\t\tBILL:";
+                cout << "\n\n\t\t\t\t";
                 for (int i = 0; i < 8; i++) {
-                    char c;
-                    file.get(c);
-                    cout << c;
+                    string word;
+                    file>>word;
+                    cout << word << " ";
             }
             }
-            cout << endl;
-            cout << "Seat Type:\t"<<Shenawy.stype;
-            cout << "Seat Location:\t" << "Row: " << UserRow << "\t" << "Column: " << UserCol << endl;
-            cout << "Price:\t" << fixed<<setprecision(2)<<Shenawy.sprice * (1 - Shenawy.discount) << endl;
-            cout << "Wising you a restful vacation and hope you enjoy your visit!";
+            cout << "\n\t\t\t\tSeat Type:\t"<<Shenawy.stype;
+            cout << "\n\t\t\t\tSeat Location:\t" << "Row: " << UserRow << "\t" << "Column: " << UserCol << endl;
+            cout << "\n\n\t\t\t\tPrice:\t" << fixed<<setprecision(2)<<Shenawy.sprice * (1 - Shenawy.discount) << endl;
+            cout << "\n\n\t\t\t\tWising you a restful vacation and hope you enjoy your visit!";
             break;
 
         case 2:
-            cout << "View Available Seats\n\n";
+            cout << "\n\n\t\t\t\tView Available Seats\n\n";
             Show_Map();
             break;
 
             
         case 3://cancelling the reservation
             int cancel;
-        w:  cout << "Are you sure you want to cancel your reservation?\t" << "Yes <1> , No <0> \n";
+        w:  cout << "\n\n\t\t\t\tAre you sure you want to cancel your reservation?\t" << "Yes <1> , No <0> \n";
             cin >> cancel;
             if (cancel == 1) {
-                cout << "Please enter the row number the column number of you seat\n\n";
+                cout << "\n\t\t\t\tPlease enter the row number the column number of you seat";
                 cin >> UserRow >> UserCol;
                 
                 map[UserRow - 1][UserCol - 1] = EMPTY;
 
                 Shenawy.wallet += Shenawy.sprice;
 
-                cout << "Reservation cancelled successfully.\n";
-                cout << "Your wallet now contains: " << Shenawy.wallet;
+                cout << "\n\t\t\t\tReservation cancelled successfully.\n";
+                cout << "\n\t\t\t\tYour wallet now contains: " << Shenawy.wallet;
             }
             else if (cancel == 0) {
                 break;
             }
             else {
-                cout << "Please choose one of the available options .\n";
+                cout << "\n\n\t\t\t\tPlease choose one of the available options.";
                 goto w;
             }
             break;
 
         case 4:
-            cout << "quitting\n";
-            cout << "\nThank you for choosing our service!\n";
+        {
+            //Self check part
+            self_check customer;
+            string status = health_check(customer);
+
+            if (status == "Highly Suspicious") {
+                cout << "\n\n\t\t\t\tUnfortunately, you have too many symptoms.";
+                cout << "\n\t\t\t\tFor your own safety and those around you, you will need to isolate yourself.";
+                cout << "\n\t\t\t\tWe apologize. You won't be able to reserve a seat." << endl;
+                return 0;
+            }
+            if (status == "Suspicious") {
+                cout << "\n\n\t\tYour health status is: " << status << ".";
+                cout << "\t\tFor your own safety and those around you, please repeat the self-check after 7 days.";
+                cout << "\t\tYou will be able to reserve a seat for now.";
+            }
+            else {
+                cout << endl << endl << "\n\n\t\t\t\tYour health status is: " << status;
+                cout << "\t\tYou will be able to reserve a seat.";
+            }
+        }
+            break;
+
+        case 5:
+            cout << "\n\n\t\t\t\tQuitting";
+            cout << "\n\t\t\t\tThank you for choosing our service!";
             break;
 
         default:
-            cout << "Error input\n";
+            cout << "\n\t\t\t\tInvalid input\n";
         }
-    } while (UserChoice != 4);
+    } while (UserChoice != 5);
 
     return 0;
 }
