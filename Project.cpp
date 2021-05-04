@@ -527,15 +527,15 @@ int main() {
 
             {
                 //the details of the client
-                client Nourhan;
+                client info;
 
                 cout << "\n\n\t\t\t\tNow we will be taking your information to book the slot.";
 
                 //Question 1
             h: cout << "\n\t\t\t\tPlease enter your first name :\t";
-                cin >> Nourhan.name;
+                cin >> info.name;
                 string alpha;
-                alpha = Nourhan.name;
+                alpha = info.name;
                 for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all letters or not
                     if (!isalpha(alpha[s])) {
                         cin.clear();
@@ -554,12 +554,12 @@ int main() {
                         goto i;
                     }
                 }
-                Nourhan.age = stoi(j); //redefine to store it in Nourhan.age from string to int 
+                info.age = stoi(j); //redefine to store it in Nourhan.age from string to int 
                 //Question 3
             j:cout << "\n\t\t\t\tPlease enter your gender (M/F):\t";
                 char gen = ' ';
                 cin >> gen;
-                Nourhan.gender = gen;
+                info.gender = gen;
                 if (!(gen == 'M' || gen == 'm' || gen == 'F' || gen == 'f')) {
                     cin.clear();
                     cout << "\n\t\t\t\tInvalid input" << endl;
@@ -576,7 +576,7 @@ int main() {
                         goto k;
                     }
                 }
-                Nourhan.phone = stoi(ph);
+                info.phone = stoi(ph);
                 //Question 5
             l:cout << "\n\t\t\t\tPlease enter your credit card number (without spaces):\t";
                 string num{}; {};
@@ -588,7 +588,7 @@ int main() {
                         goto l;
                     }
                 }
-                Nourhan.cardnumber = stoi(num);
+                info.cardnumber = stoi(num);
                 //Question 6
             m: cout << "\n\t\t\t\tPlease enter the card's expiry date:\t";
                 string dat{};
@@ -600,7 +600,7 @@ int main() {
                         goto m;
                     }
                 }
-                Nourhan.expirydate = stoi(dat);
+                info.expirydate = stoi(dat);
                 //Question 7
             n:cout << "\n\t\t\t\tPlease enter the card's cvv:\t";
                 string cv;
@@ -612,8 +612,8 @@ int main() {
                         goto n;
                     }
                 }
-                Nourhan.cvv = stoi(cv);
-                putFiles(Nourhan);             //function call 
+                info.cvv = stoi(cv);
+                putFiles(info);             //function call 
 
                 do {
                     cout << "\n\t\t\t\tAre you a VIP client?\t <1>:Yes\t<0>:No\t";
