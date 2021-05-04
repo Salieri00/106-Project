@@ -28,6 +28,7 @@ public:
     bool vomiting;
     bool loss_of_senses;
     bool covid_case;
+    ~self_check() = default;
 
     self_check() { //constructor that declares all variables to NULL
         fever = NULL;
@@ -49,6 +50,7 @@ public:
     int cardnumber;
     int expirydate;
     int cvv;
+    ~client() = default;
 
     client() { //constructor
         name = "";
@@ -68,6 +70,7 @@ class ticket {
         string stype;
         double discount;
         double wallet;
+    ~ticket() = default;
 
         ticket() {
             VIP = NULL;
