@@ -1,4 +1,3 @@
-
 /*  CS Project
     Beach Booking System
     Authors: Ahmed Badr, Shenawy, Nourhan Kamaly, Masa Tantawy
@@ -33,11 +32,11 @@ public:
     self_check() { //constructor that declares all variables to NULL
         fever = NULL;
         difficulity_breathing = NULL;
-        cough= NULL;
-        soar_throat= NULL;
-        vomiting= NULL;
-        loss_of_senses= NULL;
-        covid_case= NULL;
+        cough = NULL;
+        soar_throat = NULL;
+        vomiting = NULL;
+        loss_of_senses = NULL;
+        covid_case = NULL;
     }
 };
 
@@ -64,20 +63,20 @@ public:
 };
 
 class ticket {
-    public:
-        int VIP;
-        double sprice;
-        string stype;
-        double discount;
-        double wallet;
+public:
+    int VIP;
+    double sprice;
+    string stype;
+    double discount;
+    double wallet;
     ~ticket() = default;
 
-        ticket() {
-            VIP = NULL;
-            sprice = 0;
-            discount = 0;
-            wallet = 0;
-        }
+    ticket() {
+        VIP = NULL;
+        sprice = 0;
+        discount = 0;
+        wallet = 0;
+    }
 };
 //----------------------------------------Functions----------------------------------------
 
@@ -127,20 +126,16 @@ void welcome()
 {
     // Declaring argument for time()
     time_t tt;
-
     // Declaring variable to store return value of
     // localtime()
     struct tm* ti;
-
     // Applying time()
     time(&tt);
-
     // Using localtime()
     ti = localtime(&tt);
     cout << endl << endl;
     cout << "Current Day, Date and Time is = "
         << asctime(ti);
-
 }*/
 
 //Main menu function
@@ -414,7 +409,7 @@ int main() {
         for (int j = 0; j < columns; j++) { map[i][j] = EMPTY; }
     }
     int UserChoice;
-    
+
 
     do {
         UserChoice = MainMenu();
@@ -447,217 +442,217 @@ int main() {
                 cout << "\n\t\t\t\tYou will be able to reserve a seat.";
             }
         }
-            do {
-                //Selecting a seat
-                cout << endl << endl << setw(30) << "\n\n\t\t\t\tSTEP TWO";
-                cout << "\n\n\t\t\t\tSelecting a seat...";
+        do {
+            //Selecting a seat
+            cout << endl << endl << setw(30) << "\n\n\t\t\t\tSTEP TWO";
+            cout << "\n\n\t\t\t\tSelecting a seat...";
 
-                //displaying the map
-                Show_Map();
+            //displaying the map
+            Show_Map();
 
-                cout << endl<<"\n\n\t\t\t\tPlease select the row you would like to sit in:\t";
-                cin >> UserRow;
-                cout << endl<<"\n\n\t\t\t\tPlease select the column you would like to sit in:\t";
-                cin >> UserCol;
+            cout << endl << "\n\n\t\t\t\tPlease select the row you would like to sit in:\t";
+            cin >> UserRow;
+            cout << endl << "\n\n\t\t\t\tPlease select the column you would like to sit in:\t";
+            cin >> UserCol;
 
-                if (map[UserRow - 1][UserCol - 1] == '*') {
-                    cout << "\n\n\t\t\t\tSorry that seat is sold-out, Please select a new seat.";
-                    cout << endl;
-                }
-                else if (map[UserRow - 2][UserCol - 2] == '*' || map[UserRow][UserCol] == '*' ||
-                    map[UserRow - 2][UserCol] == '*' || map[UserRow][UserCol - 2] == '*' || map[UserRow][UserCol - 1] == '*' || map[UserRow - 2][UserCol - 1] == '*' ||
-                    map[UserRow - 1][UserCol - 2] == '*' || map[UserRow - 1][UserCol] == '*') { 
+            if (map[UserRow - 1][UserCol - 1] == '*') {
+                cout << "\n\n\t\t\t\tSorry that seat is sold-out, Please select a new seat.";
+                cout << endl;
+            }
+            else if (map[UserRow - 2][UserCol - 2] == '*' || map[UserRow][UserCol] == '*' ||
+                map[UserRow - 2][UserCol] == '*' || map[UserRow][UserCol - 2] == '*' || map[UserRow][UserCol - 1] == '*' || map[UserRow - 2][UserCol - 1] == '*' ||
+                map[UserRow - 1][UserCol - 2] == '*' || map[UserRow - 1][UserCol] == '*') {
 
-                    cout << "\n\n\t\t\t\tWe care about your health. ";
-                    cout << "A near by seat is reserved, and due to COVID-19, we cannot allow people to be sitting close.";
-                    cout << "\n\t\t\t\tPlease choose another seat\n\n";
+                cout << "\n\n\t\t\t\tWe care about your health. ";
+                cout << "A near by seat is reserved, and due to COVID-19, we cannot allow people to be sitting close.";
+                cout << "\n\t\t\t\tPlease choose another seat\n\n";
 
-                }
-                else {
-                    //displaying the types of seats
-                    displaySeats();
+            }
+            else {
+                //displaying the types of seats
+                displaySeats();
 
-                    int reserve;
-                    cout << endl<<"\n\n\t\t\t\tPlease enter the seat you want to reserve:\t";
+                int reserve;
+                cout << endl << "\n\n\t\t\t\tPlease enter the seat you want to reserve:\t";
+                cin >> reserve;
+                while (reserve < 1 || reserve > 8) {
+                    cout << endl << "\n\n\t\t\t\tPlease enter a valid number from 1 - 8:\t";
                     cin >> reserve;
-                    while (reserve < 1 || reserve > 8) {
-                        cout << endl<<"\n\n\t\t\t\tPlease enter a valid number from 1 - 8:\t";
-                        cin >> reserve;
-                    }
-                    
-
-                    switch (reserve) {
-                    case (1):
-                        Shenawy.sprice += 2800;
-                        Shenawy.stype = "Floating beach lounger without umbrella"; break;
-                    case (2):
-                        Shenawy.sprice += 3000;
-                        Shenawy.stype = "Floating beach lounger with umbrella"; break;
-                    case (3):
-                        Shenawy.sprice += 2000;
-                        Shenawy.stype += "Foldable beach chair without umbrella"; break;
-                    case (4):
-                        Shenawy.sprice += 2200;
-                        Shenawy.stype = "Foldable beach chair with umbrella"; break;
-                    case (5):
-                        Shenawy.sprice += 650;
-                        Shenawy.stype = "Ariika Malibu folding cahir without umbrella"; break;
-                    case (6):
-                        Shenawy.sprice += 850;
-                        Shenawy.stype = "Ariika Malibu folding cahir with umbrella"; break;
-                    case (7):
-                        Shenawy.sprice += 450;
-                        Shenawy.stype = "Portable leisure wood chair without umbrella"; break;
-
-                    case (8):
-                        Shenawy.sprice += 650;
-                        Shenawy.stype = "Portable leisure wood chair with umbrella"; break;
-                    }
-
-                    //confirming the reservation
-                    cout << "\n\n\t\t\t\tAre you sure you want to reserve the seat at row no." << UserRow << " and column no." << UserCol << "?";
-                    cout << "\tYes <1>, No <0>\n"; cin >> LEAVE;
-                    if (LEAVE == 0)
-                        break;
-                    cout << "\n\t\t\t\tSeat added to your cart.\n\n" << endl;
-                    map[UserRow - 1][UserCol - 1] = FULL;
                 }
 
-                cout << "\n\n\t\t\t\tDo you want to reserve another seat?";
-                cout << "\tYes <1>, No <0>\n";
-                cin >> LEAVE;
-            } while (LEAVE == 1);
 
-            {
-                //the details of the client
-                client info;
+                switch (reserve) {
+                case (1):
+                    Shenawy.sprice += 2800;
+                    Shenawy.stype = "Floating beach lounger without umbrella"; break;
+                case (2):
+                    Shenawy.sprice += 3000;
+                    Shenawy.stype = "Floating beach lounger with umbrella"; break;
+                case (3):
+                    Shenawy.sprice += 2000;
+                    Shenawy.stype += "Foldable beach chair without umbrella"; break;
+                case (4):
+                    Shenawy.sprice += 2200;
+                    Shenawy.stype = "Foldable beach chair with umbrella"; break;
+                case (5):
+                    Shenawy.sprice += 650;
+                    Shenawy.stype = "Ariika Malibu folding cahir without umbrella"; break;
+                case (6):
+                    Shenawy.sprice += 850;
+                    Shenawy.stype = "Ariika Malibu folding cahir with umbrella"; break;
+                case (7):
+                    Shenawy.sprice += 450;
+                    Shenawy.stype = "Portable leisure wood chair without umbrella"; break;
 
-                cout << "\n\n\t\t\t\tNow we will be taking your information to book the slot.";
-
-                //Question 1
-            h: cout << "\n\t\t\t\tPlease enter your first name :\t";
-                cin >> info.name;
-                string alpha;
-                alpha = info.name;
-                for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all letters or not
-                    if (!isalpha(alpha[s])) {
-                        cin.clear();
-                        cout << "\n\t\t\t\tInvalid input";
-                        goto h;
-                    }
+                case (8):
+                    Shenawy.sprice += 650;
+                    Shenawy.stype = "Portable leisure wood chair with umbrella"; break;
                 }
-                //Question 2
-                string j;
-            i: cout << "\n\t\t\t\tPlease enter your age.\t";
-                cin >> j;
-                for (int i = 0; i < j.length(); i++) {  //isdigit works with string... loop over the string
-                    if (!isdigit(j[i])) {
-                        cin.clear();
-                        cout << "\n\t\t\t\tInvalid input";
-                        goto i;
-                    }
+
+                //confirming the reservation
+                cout << "\n\n\t\t\t\tAre you sure you want to reserve the seat at row no." << UserRow << " and column no." << UserCol << "?";
+                cout << "\tYes <1>, No <0>\n"; cin >> LEAVE;
+                if (LEAVE == 0)
+                    break;
+                cout << "\n\t\t\t\tSeat added to your cart.\n\n" << endl;
+                map[UserRow - 1][UserCol - 1] = FULL;
+            }
+
+            cout << "\n\n\t\t\t\tDo you want to reserve another seat?";
+            cout << "\tYes <1>, No <0>\n";
+            cin >> LEAVE;
+        } while (LEAVE == 1);
+
+        {
+            //the details of the client
+            client info;
+
+            cout << "\n\n\t\t\t\tNow we will be taking your information to book the slot.";
+
+            //Question 1
+        h: cout << "\n\t\t\t\tPlease enter your first name :\t";
+            string alpha;
+            getline(cin, alpha);  // meaning of unsigned is a datatype that only shows  non-negative integers
+            for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all letters or not
+                if (!isalpha(alpha[s]) && alpha[s] != ' ') {
+                    cin.clear();
+                    cout << "Invalid input" << endl;
+                    goto h;
                 }
-                info.age = stoi(j); //redefine to store it in Nourhan.age from string to int 
-                //Question 3
-            j:cout << "\n\t\t\t\tPlease enter your gender (M/F):\t";
-                char gen = ' ';
-                cin >> gen;
-                info.gender = gen;
-                if (!(gen == 'M' || gen == 'm' || gen == 'F' || gen == 'f')) {
+            }
+            info.name = alpha;
+            //Question 2
+            string j;
+        i: cout << "\n\t\t\t\tPlease enter your age.\t";
+            cin >> j;
+            for (int i = 0; i < j.length(); i++) {  //isdigit works with string... loop over the string
+                if (!isdigit(j[i])) {
+                    cin.clear();
+                    cout << "\n\t\t\t\tInvalid input";
+                    goto i;
+                }
+            }
+            info.age = stoi(j); //redefine to store it in Nourhan.age from string to int 
+            //Question 3
+        j:cout << "\n\t\t\t\tPlease enter your gender (M/F):\t";
+            char gen = ' ';
+            cin >> gen;
+            info.gender = gen;
+            if (!(gen == 'M' || gen == 'm' || gen == 'F' || gen == 'f')) {
+                cin.clear();
+                cout << "\n\t\t\t\tInvalid input" << endl;
+                goto j;
+            }
+            //Question 4
+        k:cout << "\n\t\t\t\tPlease enter your phone number :\t" << endl;
+            string ph;
+            cin >> ph;
+            for (int i = 0; i < ph.length(); i++) {
+                if (!isdigit(ph[i])) {
                     cin.clear();
                     cout << "\n\t\t\t\tInvalid input" << endl;
-                    goto j;
+                    goto k;
                 }
-                //Question 4
-            k:cout << "\n\t\t\t\tPlease enter your phone number :\t" << endl;
-                string ph;
-                cin >> ph;
-                for (int i = 0; i < ph.length(); i++) {
-                    if (!isdigit(ph[i])) {
-                        cin.clear();
-                        cout << "\n\t\t\t\tInvalid input" << endl;
-                        goto k;
-                    }
-                }
-                info.phone = stoi(ph);
-                //Question 5
-            l:cout << "\n\t\t\t\tPlease enter your credit card number (without spaces):\t";
-                string num{}; {};
-                cin >> num;
-                for (int i = 0; i < num.length(); i++) {
-                    if (!isdigit(num[i])) {
-                        cin.clear();
-                        cout << "\n\t\t\t\tInvalid input";
-                        goto l;
-                    }
-                }
-                info.cardnumber = stoi(num);
-                //Question 6
-            m: cout << "\n\t\t\t\tPlease enter the card's expiry date:\t";
-                string dat{};
-                cin >> dat;
-                for (int i = 0; i < dat.length(); i++) {
-                    if (!isdigit(dat[i])) {
-                        cin.clear();
-                        cout << "\n\t\t\t\tInvalid input";
-                        goto m;
-                    }
-                }
-                info.expirydate = stoi(dat);
-                //Question 7
-            n:cout << "\n\t\t\t\tPlease enter the card's cvv:\t";
-                string cv;
-                cin >> cv;
-                for (int i = 0; i < cv.length(); i++) {
-                    if (!isdigit(cv[i])) {
-                        cin.clear();
-                        cout << "\n\t\t\t\tInvalid input";
-                        goto n;
-                    }
-                }
-                info.cvv = stoi(cv);
-                putFiles(info);             //function call 
-
-                do {
-                    cout << "\n\t\t\t\tAre you a VIP client?\t <1>:Yes\t<0>:No\t";
-                    cin >> Shenawy.VIP;
-                } while (!(Shenawy.VIP == 0 || Shenawy.VIP == 1));
-
-                if (Shenawy.VIP == 1) {
-                    cout << "\n\n\t\t\t\tDrinks and Food are included in the ticket price.";
-                }
-                cout << "\n\n\t\t\t\tYour seat reservation has been confirmed.\n\n";
             }
-            
-            if (Shenawy.sprice >= 2000) {
-                Shenawy.discount += 0.2;
+            info.phone = stoi(ph);
+            //Question 5
+        l:cout << "\n\t\t\t\tPlease enter your credit card number (without spaces):\t";
+            string num{}; {};
+            cin >> num;
+            for (int i = 0; i < num.length(); i++) {
+                if (!isdigit(num[i])) {
+                    cin.clear();
+                    cout << "\n\t\t\t\tInvalid input";
+                    goto l;
+                }
             }
+            info.cardnumber = stoi(num);
+            //Question 6
+        m: cout << "\n\t\t\t\tPlease enter the card's expiry date:\t";
+            string dat;
+            cin >> dat;
+            for (int i = 0; i < dat.length(); i++) {
+                if (!isdigit(dat[i]) && dat[i] != '/') { // if at index i the value is not a digit and not a / then proceed with the inner loop
+                    cin.clear();
+                    cout << "Invalid input" << endl;
+                    goto m;
+                }
+            }
+            info.expirydate = stoi(dat);
+            //Question 7
+        n:cout << "\n\t\t\t\tPlease enter the card's cvv:\t";
+            string cv;
+            cin >> cv;
+            for (int i = 0; i < cv.length(); i++) {
+                if (!isdigit(cv[i])) {
+                    cin.clear();
+                    cout << "\n\t\t\t\tInvalid input";
+                    goto n;
+                }
+            }
+            info.cvv = stoi(cv);
+            putFiles(info);             //function call 
 
-// ---------------------------------------BILL:---------------------------------------
-            {
-                ifstream file;
-                file.open("Client Data.txt");
+            do {
+                cout << "\n\t\t\t\tAre you a VIP client?\t <1>:Yes\t<0>:No\t";
+                cin >> Shenawy.VIP;
+            } while (!(Shenawy.VIP == 0 || Shenawy.VIP == 1));
 
-                cout << "\n\n\t\t\t\tBILL:";
-                cout << "\n\n\t\t\t\t";
-                for (int i = 0; i < 8; i++) {
-                    string word;
-                    file>>word;
-                    cout << word << " ";
+            if (Shenawy.VIP == 1) {
+                cout << "\n\n\t\t\t\tDrinks and Food are included in the ticket price.";
             }
+            cout << "\n\n\t\t\t\tYour seat reservation has been confirmed.\n\n";
+        }
+
+        if (Shenawy.sprice >= 2000) {
+            Shenawy.discount += 0.2;
+        }
+
+        // ---------------------------------------BILL:---------------------------------------
+        {
+            ifstream file;
+            file.open("Client Data.txt");
+
+            cout << "\n\n\t\t\t\tBILL:";
+            cout << "\n\n\t\t\t\t";
+            for (int i = 0; i < 8; i++) {
+                string word;
+                file >> word;
+                cout << word << " ";
             }
-            cout << "\n\t\t\t\tSeat Type:\t"<<Shenawy.stype;
-            cout << "\n\t\t\t\tSeat Location:\t" << "Row: " << UserRow << "\t" << "Column: " << UserCol << endl;
-            cout << "\n\n\t\t\t\tPrice:\t" << fixed<<setprecision(2)<<Shenawy.sprice * (1 - Shenawy.discount) << endl;
-            cout << "\n\n\t\t\t\tWising you a restful vacation and hope you enjoy your visit!";
-            break;
+        }
+        cout << "\n\t\t\t\tSeat Type:\t" << Shenawy.stype;
+        cout << "\n\t\t\t\tSeat Location:\t" << "Row: " << UserRow << "\t" << "Column: " << UserCol << endl;
+        cout << "\n\n\t\t\t\tPrice:\t" << fixed << setprecision(2) << Shenawy.sprice * (1 - Shenawy.discount) << endl;
+        cout << "\n\n\t\t\t\tWising you a restful vacation and hope you enjoy your visit!";
+        break;
 
         case 2:
             cout << "\n\n\t\t\t\tView Available Seats\n\n";
             Show_Map();
             break;
 
-            
+
         case 3://cancelling the reservation
             int cancel;
         w:  cout << "\n\n\t\t\t\tAre you sure you want to cancel your reservation?\t" << "Yes <1> , No <0> \n";
@@ -665,7 +660,7 @@ int main() {
             if (cancel == 1) {
                 cout << "\n\t\t\t\tPlease enter the row number the column number of you seat";
                 cin >> UserRow >> UserCol;
-                
+
                 map[UserRow - 1][UserCol - 1] = EMPTY;
 
                 Shenawy.wallet += Shenawy.sprice;
@@ -704,7 +699,7 @@ int main() {
                 cout << "\t\tYou will be able to reserve a seat.";
             }
         }
-            break;
+        break;
 
         case 5:
             cout << "\n\n\t\t\t\tQuitting";
