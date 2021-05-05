@@ -28,7 +28,7 @@ public:
     bool loss_of_senses;
     bool covid_case;
     ~self_check() = default;
-
+    
     self_check() { //constructor that declares all variables to NULL
         fever = NULL;
         difficulity_breathing = NULL;
