@@ -49,7 +49,7 @@ public:
     int cardnumber;
     int expirydate;
     int cvv;
-    ~client() = default;
+    ~client() = default;  //destructor 
 
     client() { //constructor
         name = "";
@@ -370,7 +370,7 @@ void putFiles(client person) {
     ofstream outfile;
     outfile.open("Client Data.txt");
 
-    //writing the data to the file
+    //writing the data to the file named Client Data 
     outfile << "Name: " << person.name << endl;
     outfile << "Age: " << person.age << endl;
     outfile << "Gender: " << person.gender << endl;
@@ -380,15 +380,15 @@ void putFiles(client person) {
     outfile << "CVV: " << person.cvv << endl;
 
     outfile.close();
-    ifstream ifile;
+    ifstream ifile    // read from file 
     ifile.open("Client Data.txt");
 
     char ch;
     cout << endl << endl;
     //displaying the contents of the file
-    while (!ifile.eof()) {
-        ifile.get(ch);
-        cout << ch;
+    while (!ifile.eof()) { //while its not the end of the file
+        ifile.get(ch);  //read each character
+        cout << ch; //and display
     }
 
 }
@@ -533,14 +533,14 @@ int main() {
         h: cout << "\n\t\t\t\tPlease enter your first name :\t";
             string alpha;
             getline(cin, alpha);  // meaning of unsigned is a datatype that only shows  non-negative integers
-            for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all letters or not
+            for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all letters or not and if it is space its accepted   
                 if (!isalpha(alpha[s]) && alpha[s] != ' ') {
                     cin.clear();
                     cout << "Invalid input" << endl;
                     goto h;
                 }
             }
-            info.name = alpha;
+            info.name = alpha; //saves the name in info.name
             //Question 2
             string j;
         i: cout << "\n\t\t\t\tPlease enter your age.\t";
