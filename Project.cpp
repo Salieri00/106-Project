@@ -47,7 +47,7 @@ public:
     char gender;
     int phone;
     int cardnumber;
-    int expirydate;
+    string expirydate;
     int cvv;
     ~client() = default;  //destructor 
 
@@ -57,7 +57,7 @@ public:
         gender = NULL;
         phone = NULL;
         cardnumber = NULL;
-        expirydate = NULL;
+        expirydate = "";
         cvv = NULL;
     }
 };
@@ -541,6 +541,7 @@ int main() {
                 }
             }
             info.name = alpha; //saves the name in info.name
+            
             //Question 2
             string j;
         i: cout << "\n\t\t\t\tPlease enter your age.\t";
@@ -553,6 +554,7 @@ int main() {
                 }
             }
             info.age = stoi(j); //redefine to store it in Nourhan.age from string to int 
+            
             //Question 3
         j:cout << "\n\t\t\t\tPlease enter your gender (M/F):\t";
             char gen = ' ';
@@ -563,6 +565,7 @@ int main() {
                 cout << "\n\t\t\t\tInvalid input" << endl;
                 goto j;
             }
+            
             //Question 4
         k:cout << "\n\t\t\t\tPlease enter your phone number :\t" << endl;
             string ph;
@@ -575,6 +578,7 @@ int main() {
                 }
             }
             info.phone = stoi(ph);
+            
             //Question 5
         l:cout << "\n\t\t\t\tPlease enter your credit card number (without spaces):\t";
             string num{}; {};
@@ -587,18 +591,24 @@ int main() {
                 }
             }
             info.cardnumber = stoi(num);
-            //Question 6
-        m: cout << "\n\t\t\t\tPlease enter the card's expiry date:\t";
-            string dat;
-            cin >> dat;
-            for (int i = 0; i < dat.length(); i++) {
-                if (!isdigit(dat[i]) && dat[i] != '/') { // if at index i the value is not a digit and not a / then proceed with the inner loop
-                    cin.clear();
-                    cout << "Invalid input" << endl;
-                    goto m;
-                }
-            }
-            info.expirydate = stoi(dat);
+            
+       //Question 6
+	z:cout << "Please enter the month of the expiry date on the card" << endl;
+	int month;
+	cin >> month;
+	if (month > 12) {  //validate the month
+		cout << "Please enter the right month" << endl;
+		goto z; //repeat the question
+	}
+	cout << "Please enter the year of the expiry date on the card" << endl;
+	int year;
+	cin >> year;
+	string month_ = to_string(month); //convert from int to string 
+	string year_ = to_string(year);
+	string dat;
+	dat = month_ + '/' + year_; //add all categories of expiry date to this variable
+	info.expirydate = dat; //save it in class
+            
             //Question 7
         n:cout << "\n\t\t\t\tPlease enter the card's cvv:\t";
             string cv;
