@@ -3,5 +3,5 @@ Seat type				Seat price
 
 - Floating beach lounger:		<1> the seat only (2,800 EGP) 		<2> the seat with umbrella (3,000 EGP)
 - Foldable beach chair			<3> the seat only (2,000 EGP) 		<4> the seat with umbrella (2,200 EGP)
-- Ariika Malibu folding cahir		<5> the seat only (650   EGP) 		<6> the seat with umbrella (850   EGP)
-- Portable leisure wood chair		<7> the seat only (450   EGP) 		<8> the seat with umbrella (650   EGP)
+- Ariika Malibu folding cahir		<5> the seat only (650   EGP) 		<6> the seat with umbrella (850  EGP)
+- Portable leisure wood chair		<7> the seat only (450   EGP) 		<8> the seat with umbrella (650  EGP)
