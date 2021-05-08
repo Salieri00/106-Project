@@ -380,7 +380,7 @@ void putFiles(client person) {
     outfile << "CVV: " << person.cvv << endl;
 
     outfile.close();
-    ifstream ifile    // read from file 
+    ifstream ifile;    // read from file 
     ifile.open("Client Data.txt");
 
     char ch;
