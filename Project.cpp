@@ -47,7 +47,7 @@ public:
     string name;
     int age;
     char gender;
-    int phone;
+    long int phone;
     int cardnumber;
     string expirydate;
     int cvv;
@@ -409,6 +409,7 @@ int main() {
     }
 
     int UserRow, UserCol, reserve;
+    double final_price;
     welcome();
     showtime();
     
@@ -572,7 +573,7 @@ int main() {
             info.gender = gen;
             if (!(gen == 'M' || gen == 'm' || gen == 'F' || gen == 'f')) {
                 cin.clear();
-                cout << "\n\t\t\t\tInvalid input" << endl;
+                cout << "\n\t\t\t\tInvalid input\n" << endl;
                 goto j;
             }
 
@@ -583,7 +584,7 @@ int main() {
             for (int i = 0; i < ph.length(); i++) {
                 if (!isdigit(ph[i])) {
                     cin.clear();
-                    cout << "\n\t\t\t\tInvalid input" << endl;
+                    cout << "\n\t\t\t\tInvalid input\n" << endl;
                     goto k;
                 }
             }
@@ -664,9 +665,12 @@ int main() {
                 cout << word << " ";
             }
         }
+
+        final_price = Shenawy.sprice * (1 - Shenawy.discount);
+
         cout << "\n\t\t\t\tSeat Type:\t" << Shenawy.stype;
         cout << "\n\t\t\t\tSeat Location:\t" << "Row: " << UserRow << "\t" << "Column: " << UserCol << endl;
-        cout << "\n\n\t\t\t\tPrice:\t" << fixed << setprecision(2) << Shenawy.sprice * (1 - Shenawy.discount) << endl;
+        cout << "\n\t\t\t\tPrice:\t" << fixed << setprecision(2) << final_price << endl;
         cout << "\n\n\t\t\t\tWising you a restful vacation and hope you enjoy your visit!";
         cout << "\n\n\n";
         break;
@@ -685,10 +689,13 @@ int main() {
                 
                 map_empty();
 
-                Shenawy.wallet += Shenawy.sprice;
+                Shenawy.wallet += final_price;
+                final_price = 0;
+                Shenawy.sprice = 0;
 
                 cout << "\n\t\t\t\tReservation cancelled successfully.\n";
                 cout << "\n\t\t\t\tYour wallet now contains: " << Shenawy.wallet;
+                cout << endl;
             }
             else if (cancel == 0) {
                 break;
