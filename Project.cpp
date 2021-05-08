@@ -8,6 +8,7 @@
 #include <string>
 #include <fstream>
 #include <iomanip>
+#include <ctime>
 using namespace std;
 
 //Global Variables
@@ -122,21 +123,16 @@ void welcome()
 }
 
 //Function to display current time
-/* void time()
+ void showtime()
 {
-    // Declaring argument for time()
-    time_t tt;
-    // Declaring variable to store return value of
-    // localtime()
-    struct tm* ti;
-    // Applying time()
-    time(&tt);
-    // Using localtime()
-    ti = localtime(&tt);
-    cout << endl << endl;
-    cout << "Current Day, Date and Time is = "
-        << asctime(ti);
-}*/
+   // current date and time on the current system
+   time_t now = time(0);
+
+   // convert now to string form
+   char* date_time = ctime(&now);
+
+   cout << "The current date and time is: " << date_time << endl;
+}
 
 //Main menu function
 int MainMenu() {
@@ -403,7 +399,7 @@ int main() {
 
     int UserRow, UserCol;
     welcome();
-    //time();
+    showtime();
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) { map[i][j] = EMPTY; }
