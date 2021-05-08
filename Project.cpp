@@ -138,7 +138,7 @@ void showtime()
 //Main menu function
 int MainMenu() {
     int MenuChoice;
-    cout << "\n\t\t\t\t Welcome On Board✌❤";	 																					
+    cout << "\n\t\t\t\t Welcome On Board :)"; 																					
     cout << "\n\n\t\t\t\t <1> Reserve Seat";
     cout << "\n\t\t\t\t <2> Check Available Seats";
     cout << "\n\t\t\t\t <3> Return Ticket";
@@ -639,7 +639,7 @@ int main() {
             } while (!(Shenawy.VIP == 0 || Shenawy.VIP == 1));
 
             if (Shenawy.VIP == 1) {
-                cout << "\n\n\t\t\t\tDrinks and food on da house 😉";
+                cout << "\n\n\t\t\t\tDrinks and food on da house ;)";
             }
             cout << "\n\n\t\t\t\tYour seat reservation has been confirmed.\n\n";
         }
@@ -647,7 +647,7 @@ int main() {
         if (Shenawy.sprice >= 2000) {
             cout << "\n\n\t\t\t\tYour payment is over 2000 EGP.";
             cout << "\n\n\t\t\t\tCompliment from the Manager Shenawy- you are a special client.";
-            cout << "\n\n\t\t\t\tWoho you got a 20% discount🎉";
+            cout << "\n\n\t\t\t\tWoho you got a 20% discount!";
             Shenawy.discount += 0.2;
         }
 
