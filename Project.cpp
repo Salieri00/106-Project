@@ -48,7 +48,7 @@ public:
     int age;
     char gender;
     long int phone;
-    int cardnumber;
+    long int cardnumber;
     string expirydate;
     int cvv;
 
@@ -538,14 +538,14 @@ int main() {
             
             //Question 1
         h: cout << "\n\t\t\t\tPlease enter your full name :\t";
-            string first_name, last_name;
-            cin >> first_name >> last_name;
+            string first_name, last_name; 
+            cin >> first_name >> last_name; //saves the first name in first_name and the same for the last name
 
-            string alpha= first_name + ' ' + last_name;
+            string alpha= first_name + ' ' + last_name; //combines both the first name and last name in a string variable string 
             
             // meaning of unsigned is a datatype that only shows non-negative integers
-            for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all letters or not and if it is space its accepted   
-                if (!isalpha(alpha[s]) && alpha[s] != ' ') {
+            for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all characters are letters or not and if it is space its accepted   
+                if (!isalpha(alpha[s]) && alpha[s] != ' ') { //if this if statement is true then it displays Invalid input and repeats the question again 
                     cin.clear();
                     cout << "Invalid input" << endl;
                     goto h;
@@ -557,8 +557,8 @@ int main() {
             string j;
         i: cout << "\n\t\t\t\tPlease enter your age:\t";
             cin >> j;
-            for (int i = 0; i < j.length(); i++) {  //isdigit works with string... loop over the string
-                if (!isdigit(j[i])) {
+            for (int i = 0; i < j.length(); i++) {  //isdigit works with string... loop over the charcters of the string to see if it is a digit or not 
+                if (!isdigit(j[i])) { //if if statement is true then clear the input and displays invalid input and repeats the question again
                     cin.clear();
                     cout << "\n\t\t\t\tInvalid input";
                     goto i;
@@ -569,9 +569,9 @@ int main() {
             //Question 3
         j:cout << "\n\t\t\t\tPlease enter your gender (M/F):\t";
             char gen = ' ';
-            cin >> gen;
+            cin >> gen;  
             info.gender = gen;
-            if (!(gen == 'M' || gen == 'm' || gen == 'F' || gen == 'f')) {
+            if (!(gen == 'M' || gen == 'm' || gen == 'F' || gen == 'f')) { //if the variable gen is not lowercase uppercase f or m then it clears the input,displays a message, returns question
                 cin.clear();
                 cout << "\n\t\t\t\tInvalid input\n" << endl;
                 goto j;
@@ -581,8 +581,8 @@ int main() {
         k:cout << "\n\t\t\t\tPlease enter your phone number:\t";
             string ph;
             cin >> ph;
-            for (int i = 0; i < ph.length(); i++) {
-                if (!isdigit(ph[i])) {
+            for (int i = 0; i < ph.length(); i++) { //loops over the string characters
+                if (!isdigit(ph[i])) { //if statement true then clears input, displays invalid input, and repeats the question
                     cin.clear();
                     cout << "\n\t\t\t\tInvalid input\n" << endl;
                     goto k;
@@ -594,8 +594,8 @@ int main() {
         l:cout << "\n\t\t\t\tPlease enter your credit card number (without spaces):\t";
             string num;
             cin >> num;
-            for (int i = 0; i < num.length(); i++) {
-                if (!isdigit(num[i])) {
+            for (int i = 0; i < num.length(); i++) { //loops over the charcters in the string variable num
+                if (!isdigit(num[i])) { //if statement is true then clear input, displays invalid input, and repeats the question
                     cin.clear();
                     cout << "\n\t\t\t\tInvalid input";
                     goto l;
@@ -614,8 +614,8 @@ int main() {
             cout << "\n\t\t\t\tPlease enter the year of the expiry date on the card: \t";
             int year;
             cin >> year;
-            string month_ = to_string(month); //convert from int to string 
-            string year_ = to_string(year);
+            string month_ = to_string(month); //convert month variable (int) to string 
+            string year_ = to_string(year); // ''''
             string dat;
             dat = month_ + '/' + year_; //add all categories of expiry date to this variable
             info.expirydate = dat; //save it in class
@@ -624,8 +624,8 @@ int main() {
         n:cout << "\n\t\t\t\tPlease enter the card's cvv:\t";
             string cv;
             cin >> cv;
-            for (int i = 0; i < cv.length(); i++) {
-                if (!isdigit(cv[i])) {
+            for (int i = 0; i < cv.length(); i++) { //loops over the characters of the characters of the string variable
+                if (!isdigit(cv[i])) { 
                     cin.clear();
                     cout << "\n\t\t\t\tInvalid input";
                     goto n;
