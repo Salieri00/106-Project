@@ -28,8 +28,7 @@ public:
     bool vomiting;
     bool loss_of_senses;
     bool covid_case;
-    ~self_check() = default;
-    
+
     self_check() { //constructor that declares all variables to NULL
         fever = NULL;
         difficulity_breathing = NULL;
@@ -39,6 +38,8 @@ public:
         loss_of_senses = NULL;
         covid_case = NULL;
     }
+
+    ~self_check() = default;
 };
 
 class client {
@@ -50,7 +51,6 @@ public:
     int cardnumber;
     string expirydate;
     int cvv;
-    ~client() = default;  //destructor 
 
     client() { //constructor
         name = "";
@@ -61,6 +61,7 @@ public:
         expirydate = "";
         cvv = NULL;
     }
+    ~client() = default;  //destructor 
 };
 
 class ticket {
@@ -70,7 +71,6 @@ public:
     string stype;
     double discount;
     double wallet;
-    ~ticket() = default;
 
     ticket() {
         VIP = NULL;
@@ -78,6 +78,7 @@ public:
         discount = 0;
         wallet = 0;
     }
+    ~ticket() = default;
 };
 //----------------------------------------Functions----------------------------------------
 
@@ -123,21 +124,21 @@ void welcome()
 }
 
 //Function to display current time
- void showtime()
+void showtime()
 {
-   // current date and time on the current system
-   time_t now = time(0);
+    // current date and time on the current system
+    time_t now = time(0);
 
-   // convert now to string form
-   char* date_time = ctime(&now);
+    // convert now to string form
+    char* date_time = ctime(&now);
 
-   cout << "The current date and time is: " << date_time << endl;
+    cout << "\n\n\t\t\t\tThe current date and time is: " << date_time << endl;
 }
 
 //Main menu function
 int MainMenu() {
     int MenuChoice;
-    cout << "\n\t\t\t\t Welcome Customer!";	 																					//Menu for the user
+    cout << "\n\t\t\t\t Welcome Customer!";	 																					
     cout << "\n\n\t\t\t\t <1> Reserve Seat";
     cout << "\n\t\t\t\t <2> Check Available Seats";
     cout << "\n\t\t\t\t <3> Return Ticket";
@@ -205,6 +206,16 @@ void Show_Map()
     cout << endl;
 }
 
+void map_empty() {
+    //Making the map empty
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) { map[i][j] = EMPTY; }
+    }
+    map[1][1] = FULL;
+    map[4][8] = FULL;
+    map[2][5] = '*';
+    map[10][15] = '*';
+}
 //Function to check the health status of the customer based on number of symptoms
 string check_status(self_check A) {
     int symptoms = 0;
@@ -397,15 +408,13 @@ int main() {
         exit(1);
     }
 
-    int UserRow, UserCol;
+    int UserRow, UserCol, reserve;
     welcome();
     showtime();
+    
+    map_empty();
 
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; j++) { map[i][j] = EMPTY; }
-    }
     int UserChoice;
-
 
     do {
         UserChoice = MainMenu();
@@ -468,7 +477,6 @@ int main() {
                 //displaying the types of seats
                 displaySeats();
 
-                int reserve;
                 cout << endl << "\n\n\t\t\t\tPlease enter the seat you want to reserve:\t";
                 cin >> reserve;
                 while (reserve < 1 || reserve > 8) {
@@ -524,11 +532,16 @@ int main() {
             client info;
 
             cout << "\n\n\t\t\t\tNow we will be taking your information to book the slot.";
-
+            
+            
             //Question 1
         h: cout << "\n\t\t\t\tPlease enter your first name :\t";
-            string alpha;
-            getline(cin, alpha);  // meaning of unsigned is a datatype that only shows  non-negative integers
+            string first_name, last_name;
+            cin >> first_name >> last_name;
+
+            string alpha= first_name + ' ' + last_name;
+            
+            // meaning of unsigned is a datatype that only shows non-negative integers
             for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all letters or not and if it is space its accepted   
                 if (!isalpha(alpha[s]) && alpha[s] != ' ') {
                     cin.clear();
@@ -537,7 +550,7 @@ int main() {
                 }
             }
             info.name = alpha; //saves the name in info.name
-            
+
             //Question 2
             string j;
         i: cout << "\n\t\t\t\tPlease enter your age.\t";
@@ -550,7 +563,7 @@ int main() {
                 }
             }
             info.age = stoi(j); //redefine to store it in Nourhan.age from string to int 
-            
+
             //Question 3
         j:cout << "\n\t\t\t\tPlease enter your gender (M/F):\t";
             char gen = ' ';
@@ -561,9 +574,9 @@ int main() {
                 cout << "\n\t\t\t\tInvalid input" << endl;
                 goto j;
             }
-            
+
             //Question 4
-        k:cout << "\n\t\t\t\tPlease enter your phone number :\t" << endl;
+        k:cout << "\n\t\t\t\tPlease enter your phone number :\t";
             string ph;
             cin >> ph;
             for (int i = 0; i < ph.length(); i++) {
@@ -574,10 +587,10 @@ int main() {
                 }
             }
             info.phone = stoi(ph);
-            
+
             //Question 5
         l:cout << "\n\t\t\t\tPlease enter your credit card number (without spaces):\t";
-            string num{}; {};
+            string num;
             cin >> num;
             for (int i = 0; i < num.length(); i++) {
                 if (!isdigit(num[i])) {
@@ -587,25 +600,25 @@ int main() {
                 }
             }
             info.cardnumber = stoi(num);
-            
-       //Question 6
-	z:cout << "Please enter the month of the expiry date on the card" << endl;
-	int month;
-	cin >> month;
-	if (month > 12) {  //validate the month
-		cout << "Please enter the right month" << endl;
-		goto z; //repeat the question
-	}
-	cout << "Please enter the year of the expiry date on the card" << endl;
-	int year;
-	cin >> year;
-	string month_ = to_string(month); //convert from int to string 
-	string year_ = to_string(year);
-	string dat;
-	dat = month_ + '/' + year_; //add all categories of expiry date to this variable
-	info.expirydate = dat; //save it in class
-            
-            //Question 7
+
+            //Question 6
+        z:cout << "\n\t\t\t\tPlease enter the month of the expiry date on the card: \t";
+            int month;
+            cin >> month;
+            if (month > 12) {  //validate the month
+                cout << "Please enter the right month" << endl;
+                goto z; //repeat the question
+            }
+            cout << "\n\t\t\t\tPlease enter the year of the expiry date on the card: \t";
+            int year;
+            cin >> year;
+            string month_ = to_string(month); //convert from int to string 
+            string year_ = to_string(year);
+            string dat;
+            dat = month_ + '/' + year_; //add all categories of expiry date to this variable
+            info.expirydate = dat; //save it in class
+
+         //Question 7
         n:cout << "\n\t\t\t\tPlease enter the card's cvv:\t";
             string cv;
             cin >> cv;
@@ -641,7 +654,7 @@ int main() {
 
             cout << "\n\n\t\t\t\tBILL:";
             cout << "\n\n\t\t\t\t";
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < 10; i++) {
                 string word;
                 file >> word;
                 cout << word << " ";
@@ -667,7 +680,7 @@ int main() {
                 cout << "\n\t\t\t\tPlease enter the row number the column number of you seat";
                 cin >> UserRow >> UserCol;
 
-                map[UserRow - 1][UserCol - 1] = EMPTY;
+                map_empty();
 
                 Shenawy.wallet += Shenawy.sprice;
 
