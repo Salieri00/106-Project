@@ -1,4 +1,4 @@
-/*  CS Project
+﻿/*  CS Project
     Beach Booking System
     Authors: Ahmed Badr, Shenawy, Nourhan Kamaly, Masa Tantawy
 */
@@ -138,7 +138,7 @@ void showtime()
 //Main menu function
 int MainMenu() {
     int MenuChoice;
-    cout << "\n\t\t\t\t Welcome Customer!";	 																					
+    cout << "\n\t\t\t\t Welcome On Board✌❤";	 																					
     cout << "\n\n\t\t\t\t <1> Reserve Seat";
     cout << "\n\t\t\t\t <2> Check Available Seats";
     cout << "\n\t\t\t\t <3> Return Ticket";
@@ -459,6 +459,7 @@ int main() {
             cin >> UserRow;
             cout << endl << "\n\n\t\t\t\tPlease select the column you would like to sit in:\t";
             cin >> UserCol;
+            cout << endl;
 
             if (map[UserRow - 1][UserCol - 1] == '*') {
                 cout << "\n\n\t\t\t\tSorry that seat is sold-out, Please select a new seat.";
@@ -535,7 +536,7 @@ int main() {
             
             
             //Question 1
-        h: cout << "\n\t\t\t\tPlease enter your first name :\t";
+        h: cout << "\n\t\t\t\tPlease enter your full name :\t";
             string first_name, last_name;
             cin >> first_name >> last_name;
 
@@ -553,7 +554,7 @@ int main() {
 
             //Question 2
             string j;
-        i: cout << "\n\t\t\t\tPlease enter your age.\t";
+        i: cout << "\n\t\t\t\tPlease enter your age:\t";
             cin >> j;
             for (int i = 0; i < j.length(); i++) {  //isdigit works with string... loop over the string
                 if (!isdigit(j[i])) {
@@ -576,7 +577,7 @@ int main() {
             }
 
             //Question 4
-        k:cout << "\n\t\t\t\tPlease enter your phone number :\t";
+        k:cout << "\n\t\t\t\tPlease enter your phone number:\t";
             string ph;
             cin >> ph;
             for (int i = 0; i < ph.length(); i++) {
@@ -606,7 +607,7 @@ int main() {
             int month;
             cin >> month;
             if (month > 12) {  //validate the month
-                cout << "Please enter the right month" << endl;
+                cout << "\n\t\t\t\tPlease enter the right month" << endl;
                 goto z; //repeat the question
             }
             cout << "\n\t\t\t\tPlease enter the year of the expiry date on the card: \t";
@@ -638,12 +639,15 @@ int main() {
             } while (!(Shenawy.VIP == 0 || Shenawy.VIP == 1));
 
             if (Shenawy.VIP == 1) {
-                cout << "\n\n\t\t\t\tDrinks and Food are included in the ticket price.";
+                cout << "\n\n\t\t\t\tDrinks and food on da house 😉";
             }
             cout << "\n\n\t\t\t\tYour seat reservation has been confirmed.\n\n";
         }
 
         if (Shenawy.sprice >= 2000) {
+            cout << "\n\n\t\t\t\tYour payment is over 2000 EGP.";
+            cout << "\n\n\t\t\t\tCompliment from the Manager Shenawy- you are a special client.";
+            cout << "\n\n\t\t\t\tWoho you got a 20% discount🎉";
             Shenawy.discount += 0.2;
         }
 
@@ -664,6 +668,7 @@ int main() {
         cout << "\n\t\t\t\tSeat Location:\t" << "Row: " << UserRow << "\t" << "Column: " << UserCol << endl;
         cout << "\n\n\t\t\t\tPrice:\t" << fixed << setprecision(2) << Shenawy.sprice * (1 - Shenawy.discount) << endl;
         cout << "\n\n\t\t\t\tWising you a restful vacation and hope you enjoy your visit!";
+        cout << "\n\n\n";
         break;
 
         case 2:
@@ -677,9 +682,7 @@ int main() {
         w:  cout << "\n\n\t\t\t\tAre you sure you want to cancel your reservation?\t" << "Yes <1> , No <0> \n";
             cin >> cancel;
             if (cancel == 1) {
-                cout << "\n\t\t\t\tPlease enter the row number the column number of you seat";
-                cin >> UserRow >> UserCol;
-
+                
                 map_empty();
 
                 Shenawy.wallet += Shenawy.sprice;
