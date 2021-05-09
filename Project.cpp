@@ -1,4 +1,4 @@
-﻿/*  CS Project
+/*  CS Project
     Beach Booking System
     Authors: Ahmed Badr, Shenawy, Nourhan Kamaly, Masa Tantawy
 */
@@ -138,7 +138,7 @@ void showtime()
 //Main menu function
 int MainMenu() {
     int MenuChoice;
-    cout << "\n\t\t\t\t Welcome On Board :)"; 																					
+    cout << "\n\t\t\t\t Welcome On Board :)";
     cout << "\n\n\t\t\t\t <1> Reserve Seat";
     cout << "\n\t\t\t\t <2> Check Available Seats";
     cout << "\n\t\t\t\t <3> Return Ticket";
@@ -409,18 +409,18 @@ int main() {
     }
 
     int UserRow, UserCol, reserve;
+    int UserChoice;
     double final_price;
+    ticket Shenawy;
+
     welcome();
     showtime();
-    
     map_empty();
 
-    int UserChoice;
 
     do {
         UserChoice = MainMenu();
 
-        ticket Shenawy;
         switch (UserChoice) {
         case 1:
         {
@@ -474,6 +474,10 @@ int main() {
                 cout << "A near by seat is reserved, and due to COVID-19, we cannot allow people to be sitting close.";
                 cout << "\n\t\t\t\tPlease choose another seat\n\n";
 
+            }
+            else if (UserRow > 15 || UserCol > 30)
+            {
+                cout << "\n\n\t\t\t\tNo such seat exists. Please choose a right seat.\n\n";
             }
             else {
                 //displaying the types of seats
@@ -534,15 +538,15 @@ int main() {
             client info;
 
             cout << "\n\n\t\t\t\tNow we will be taking your information to book the slot.";
-            
-            
+
+
             //Question 1
         h: cout << "\n\t\t\t\tPlease enter your full name :\t";
-            string first_name, last_name; 
+            string first_name, last_name;
             cin >> first_name >> last_name; //saves the first name in first_name and the same for the last name
 
-            string alpha= first_name + ' ' + last_name; //combines both the first name and last name in a string variable string 
-            
+            string alpha = first_name + ' ' + last_name; //combines both the first name and last name in a string variable string 
+
             // meaning of unsigned is a datatype that only shows non-negative integers
             for (unsigned s = 0; s < alpha.length(); s++) { //loop over letters to find if all characters are letters or not and if it is space its accepted   
                 if (!isalpha(alpha[s]) && alpha[s] != ' ') { //if this if statement is true then it displays Invalid input and repeats the question again 
@@ -569,7 +573,7 @@ int main() {
             //Question 3
         j:cout << "\n\t\t\t\tPlease enter your gender (M/F):\t";
             char gen = ' ';
-            cin >> gen;  
+            cin >> gen;
             info.gender = gen;
             if (!(gen == 'M' || gen == 'm' || gen == 'F' || gen == 'f')) { //if the variable gen is not lowercase uppercase f or m then it clears the input,displays a message, returns question
                 cin.clear();
@@ -625,7 +629,7 @@ int main() {
             string cv;
             cin >> cv;
             for (int i = 0; i < cv.length(); i++) { //loops over the characters of the characters of the string variable
-                if (!isdigit(cv[i])) { 
+                if (!isdigit(cv[i])) {
                     cin.clear();
                     cout << "\n\t\t\t\tInvalid input";
                     goto n;
@@ -686,7 +690,7 @@ int main() {
         w:  cout << "\n\n\t\t\t\tAre you sure you want to cancel your reservation?\t" << "Yes <1> , No <0> \n";
             cin >> cancel;
             if (cancel == 1) {
-                
+
                 map_empty();
 
                 Shenawy.wallet += final_price;
